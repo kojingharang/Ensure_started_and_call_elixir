@@ -1,6 +1,6 @@
 # EnsureCall
 
-**TODO: Add description**
+elixir implementation of https://github.com/kojingharang/Ensure_started_and_call
 
 ## Installation
 
