@@ -4,7 +4,7 @@ defmodule EnsureCall do
   def start(_type, _args) do
     IO.puts "running"
     ret = ServerA.Sup.start_link()
-    Sample.a()
+    #Sample.a()
     ret
   end
 end

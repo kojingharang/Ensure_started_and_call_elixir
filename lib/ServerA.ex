@@ -34,22 +34,21 @@ defmodule ServerA do
     {:ok, 0}
   end
   
-  def handle_call(doit, _from, state) do
+  def handle_call(:doit, _from, state) do
     _ = doit()
     {:reply, :ok, state}
   end
 
-  def handle_cast(doit, state) do
+  def handle_cast(:doit, state) do
     _ = doit()
     {:noreply, state}
   end
 
-  def handle_info(die, state) do
+  def handle_info(:die, state) do
     {:stop, :shutdown, state}
   end
 
   defp doit() do
-    #IO.puts "doit"
     ms = 1 # This process will die soon!
     _ = :erlang.send_after(ms, self(), :die)
     _ = :ets.update_counter(:table, :key, 1)
